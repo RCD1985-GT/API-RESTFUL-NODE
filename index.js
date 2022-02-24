@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const PORT = 3000;
 
-/*const router = require('./router');*/
+const router = require('./router');
 
 let corsOptions = {//CONFIGURO OPCIONES DE CORS
     origin: "*",
@@ -19,7 +19,7 @@ app.use(express.json()); //PUEDO OBTENER JSON DEL BODY
 app.use(cors(corsOptions));  //USO CORS
 
 
-/*app.use(router);*/
+app.use(router);
 
 
 /*db.then(()=>{*/
