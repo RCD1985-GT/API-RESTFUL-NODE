@@ -1,11 +1,11 @@
-const express = require('express');
-const app = express();
-const cors = require('cors');
-/*const db = require('./db.js');*/
+const express = require('express'); // DECLARO EXPRESS
+const app = express(); // DECLARO QUE APP USE EXPRESS
+const cors = require('cors'); // DECLARO CORS
+/*const db = require('./db.js'); aqui da problemas*/
 
-const PORT = 3000;
+const PORT = 3000; // DECLARO ROUTER
 
-const router = require('./router');
+const router = require('./router'); 
 
 let corsOptions = {//CONFIGURO OPCIONES DE CORS
     origin: "*",

@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
-/*const auth = require("../middlewares/auth");
-const isAdmin = require("../middlewares/isAdmin");*/
+const auth = require("../middlewares/auth");/* AL ACTIVAR ESTAS 2 LINEAS FALLA*/
+const isAdmin = require("../middlewares/isAdmin");
 
 const UsuarioController = require('../controllers/UsuarioController');
 
 //CRUD RESTful
 
 //Leer todos los usuarios
-router.get('/', auth,  UsuarioController.traeUsuarios);
+router.get('/', auth,  UsuarioController.traeUsuarios); 
 //http://localhost:3000/usuarios
 
 
