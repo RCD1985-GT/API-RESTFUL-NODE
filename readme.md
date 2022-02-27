@@ -1,30 +1,12 @@
 # README.MD
-Making attractive and usable readme's. 
-This is a short description about the content of my proyect. This text have to be simple and explicit.
+En este backend de peliculas podemos gestionar 3 areas: usuarios, peliculas y pedidos.
 
-## Content
-This proyect has two branches: develop1 and develop2. **develop1** contains the tests of the repositories and **develop2** contains the test of the use cases.
+## Contenido
+Este proyecto contiende 2 ramas, una rama master donde se encontrará el proyecto acabado y una rama dev que estamos usando para el desarollo del proyecto.
 
 ## Demo
-If you want to see the demo of this proyect deployed, you can visit [Demo of the proyect](https://anabelisa.co/tips-para-hacer-un-buen-readme-md/)
+Para ver una demo del proyecto puedes visitar: https://github.com/RCD1985-GT/API-RESTFUL-NODE.git
 
-## How to clone
-If you have special requirements, you have to list it step by step.
-* This is the first step
-* Then you have to do this
-* Finally do this
+## Instalacion
+Para instalar todas las dependencias del proyecto ejecutar el comando npm i.
 
-Markdown has enumation and nested lists.
-
-## Installation
-To install and run this proyect just type and execute
-```bash
-npm install
-```
-## Preview
-Insert here an image of the preview if your project has one. The image can be into the project, you have to indicate the route and look like this.
-
-![](/preview.jpg)
-
-### Notes
-If you want to learn all about markdown i recommend you visit the site [markdown.es](https://markdown.es/sintaxis-markdown/)
