@@ -1,4 +1,4 @@
-const { Usuario } = require('../models/index'); 
+const { Usuario } = require('../models/index');  // ¿PORQUE LLAMA A MODELS/INDEX.JS?
 const { Op } = require("sequelize");
 const bcrypt = require('bcrypt');
 const authConfig = require('../config/auth'); 
@@ -39,11 +39,10 @@ UsuarioController.registraUsuario = async (req, res) => {
     
     //Registrando un usuario
     
-        let nobre = req.body.nombre;
+        let nombre = req.body.nombre;
         let apellido = req.body.apellido;
         let email = req.body.email;
         let edad = req.body.edad;
-        /*console.log("antes de encriptar",req.body.password);*/
         let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds)); 
         
         console.log("este es el password", password);

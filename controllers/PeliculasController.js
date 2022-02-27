@@ -1,5 +1,5 @@
 const { default: axios } = require("axios");
-const { Pelicula } = require('../models/index');
+const { Pelicula } = require('../models/index'); // ¿PORQUE LLAMA A MODELS/INDEX.JS?
 const { Op } = require("sequelize");
 const { compareSync } = require("bcrypt");
 

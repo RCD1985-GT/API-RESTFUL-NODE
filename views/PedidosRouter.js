@@ -6,6 +6,6 @@ const PedidosController = require('../controllers/PedidosController');
 
 router.post('/', PedidosController.nuevoPedido );
 
-router.get('/', PedidosController.allOrders);
+router.get('/', PedidosController.totalPedidos);
 
 module.exports = router;

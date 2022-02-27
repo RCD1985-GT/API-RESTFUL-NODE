@@ -14,9 +14,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Pedidos.init({
-    usuario: DataTypes.STRING,
-    titulo: DataTypes.STRING,
-    metodo: DataTypes.STRING
+    peliculaId: DataTypes.STRING,
+    usuarioId: DataTypes.STRING,
+    precio: DataTypes.INTEGER, 
+    fechaAlquiler: DataTypes.DATE, // ¿DATE ES CORRECTO?...CÓMO ESCRIBO UN DATE EN POSTAM¿?
+    fechaDevolucion: DataTypes.STRING // ¿DATE ES CORRECTO?...CÓMO ESCRIBO UN DATE EN POSTAM¿?
   }, {
     sequelize,
     modelName: 'Pedidos',

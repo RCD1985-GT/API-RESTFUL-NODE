@@ -1,5 +1,5 @@
 
-const { Order } = require('../models/index');
+const { Order } = require('../models/index'); // ¿PORQUE LLAMA A MODELS/INDEX.JS?
 
 
 const PedidosController = {};
@@ -10,14 +10,15 @@ PedidosController.nuevoPedido = (req,res) => {
 
     console.log("este es body",body)
 
-    Pedidos.create({
-        precio: body.precio,
+    pedido.create({
         peliculaId: body.peliculaId,
         usuarioId: body.usuarioId,
-        fecha: body.fecha
+        precio: body.precio,
+        fechaAlquiler: body.fechaAlquiler,
+        fechaDevolucion: body.fechaDevolucion
     })
-    .then(pedidos => {
-        if(pedidos){
+    .then(pedido => {
+        if(pedido){
             res.send(pedido)
         }else{
             res.send("La creación de un nuevo pedido ha fallado");
@@ -28,7 +29,7 @@ PedidosController.nuevoPedido = (req,res) => {
     }))
 }
 
-PedidosController.allOrders = async (req,res) => {
+PedidosController.totalPedidos = async (req,res) => {
 
     let consulta = `SELECT usuarios.name AS nombre, peliculas.titulo AS titulo , peliculas.popularity AS top_rated, usuarios.nickname AS Nick, usuarios.email AS correo
     FROM usuarios INNER JOIN orders 
