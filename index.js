@@ -1,7 +1,7 @@
 const express = require('express'); // DECLARO EXPRESS
 const app = express(); // DECLARO QUE APP USE EXPRESS
 const cors = require('cors'); // DECLARO CORS
-/*const db = require('./db.js');  EN CUANTO DESACTIVO ESTO SE CAE EL SERVIDOR*/
+const db = require('./db.js'); 
 
 const PORT = 3000; // DECLARO ROUTER
 
@@ -22,7 +22,7 @@ app.use(cors(corsOptions));  //USO CORS
 app.use(router);
 
 
-/*db.then(()=>{*/
+db.then(()=>{
     app.listen(PORT, ()=> console.log(`Server on port ${PORT}`)); //Conectado a la base de datos
-/*})
-.catch((err)=> console.log(err.message));*/
+})
+.catch((err)=> console.log(err.message));

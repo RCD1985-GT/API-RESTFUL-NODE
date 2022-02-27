@@ -5,7 +5,7 @@ const isAdmin = require("../middlewares/isAdmin");
 
 const UsuarioController = require('../controllers/UsuarioController');
 
-//CRUD RESTful
+//CRUD 
 
 //Leer todos los usuarios-READ
 router.get('/', auth,  UsuarioController.traeUsuarios); 

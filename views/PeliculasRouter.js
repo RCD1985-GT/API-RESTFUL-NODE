@@ -6,15 +6,16 @@ const router = express.Router();
 const PeliculasController = require('../controllers/PeliculasController');
 
 
-//CRUD RESTful
+//CRUD 
 
-//Leer todas las peliculas
+//Registro de una peli nueva-CREATE
+router.post('/', PeliculasController.registraPelicula);
+//http://localhost:3000/peliculas
+
+//Leer todas las peliculas-READ
 router.get('/', PeliculasController.traePeliculas);
 //http://localhost:3000/peliculas
 
-//Registro de una peli nueva
-router.post('/', PeliculasController.registraPelicula);
-//http://localhost:3000/peliculas
 
 //Búsqueda de películas por título y adulto
 router.get('/favoritas', PeliculasController.favouriteFilms);
