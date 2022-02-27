@@ -39,12 +39,11 @@ UsuarioController.registraUsuario = async (req, res) => {
     
     //Registrando un usuario
     
-        let name = req.body.name;
-        let age = req.body.age;
-        let surname = req.body.surname;
-        let nickname = req.body.nickname;
+        let nobre = req.body.nombre;
+        let apellido = req.body.apellido;
         let email = req.body.email;
-        console.log("antes de encriptar",req.body.password);
+        let edad = req.body.edad;
+        /*console.log("antes de encriptar",req.body.password);*/
         let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds)); 
         
         console.log("este es el password", password);
@@ -61,11 +60,11 @@ UsuarioController.registraUsuario = async (req, res) => {
                             [Op.like] : email
                         }
                     },
-                    {
+                    /*{
                         nickname : {
                             [Op.like] : nickname
                         }
-                    }
+                    }*/
                 ]
 
             }
@@ -75,12 +74,11 @@ UsuarioController.registraUsuario = async (req, res) => {
             if(datosRepetidos == 0){
 
                     Usuario.create({
-                    name: name,
-                    age: age,
-                    surname: surname,
+                    nombre: nombre,
+                    apellido: apellido,
                     email: email,
+                    edad: edad,
                     password: password,
-                    nickname: nickname
                 }).then(usuario => {
                     res.send(`${usuario.name}, bienvenida a este infierno`);
                 })
