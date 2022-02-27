@@ -1,7 +1,7 @@
 const express = require('express'); // DECLARO EXPRESS
 const app = express(); // DECLARO QUE APP USE EXPRESS
 const cors = require('cors'); // DECLARO CORS
-/*const db = require('./db.js'); aqui da problemas*/
+/*const db = require('./db.js');  EN CUANTO DESACTIVO ESTO SE CAE EL SERVIDOR*/
 
 const PORT = 3000; // DECLARO ROUTER
 
