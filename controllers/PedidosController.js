@@ -4,6 +4,8 @@ const { Order } = require('../models/index'); // ¿PORQUE LLAMA A MODELS/INDEX.J
 
 const PedidosController = {};
 
+
+// Funcion nuevoPedido
 PedidosController.nuevoPedido = (req,res) => {
     
     let body = req.body;
@@ -29,6 +31,7 @@ PedidosController.nuevoPedido = (req,res) => {
     }))
 }
 
+// Funcion totalPedidos
 PedidosController.totalPedidos = async (req,res) => {
 
     let consulta = `SELECT usuarios.name AS nombre, peliculas.titulo AS titulo , peliculas.popularity AS top_rated, usuarios.nickname AS Nick, usuarios.email AS correo

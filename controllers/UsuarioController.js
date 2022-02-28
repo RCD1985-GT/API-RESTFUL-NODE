@@ -6,12 +6,10 @@ const jwt = require('jsonwebtoken');
 
 const UsuarioController = {};
 
-
-//Funciones del controlador
-
+// Funcion traeUsuarios
 UsuarioController.traeUsuarios = (req, res) => {
     //Búsqueda trayendo a todos los usuarios
-    Usuario.findAll()
+    Usuario.encuentraTodos()
     .then(data => { 
 
         res.send(data) 
@@ -19,22 +17,7 @@ UsuarioController.traeUsuarios = (req, res) => {
 
 };
 
-UsuarioController.traerUsuarioId = (req, res) => {
-    //Búsqueda buscando una Id
-    Usuario.findByPk(req.params.id)
-    .then(data => {
-        res.send(data)
-    });
-};
-
-UsuarioController.traerUsuarioEmail = (req, res) => {
-    //Búsqueda comparando un campo
-    Usuario.findOne({ where : { email : req.params.email }})
-    .then(data => {
-        res.send(data)
-    });
-}
-
+// Funcion registraUsuario
 UsuarioController.registraUsuario = async (req, res) => {
     
     //Registrando un usuario
@@ -50,7 +33,7 @@ UsuarioController.registraUsuario = async (req, res) => {
         
         //Guardamos en sequelize el usuario
 
-        Usuario.findAll({
+        Usuario.encuentraTodos({
             where : {
 
                 [Op.or] : [
@@ -72,14 +55,14 @@ UsuarioController.registraUsuario = async (req, res) => {
 
             if(datosRepetidos == 0){
 
-                    Usuario.create({
+                    Usuario.crear({
                     nombre: nombre,
                     apellido: apellido,
                     email: email,
                     edad: edad,
                     password: password,
                 }).then(usuario => {
-                    res.send(`${usuario.name}, bienvenida a este infierno`);
+                    res.send(`${usuario.nombre}, bienvenid@ a MovieWorld`);
                 })
                 .catch((error) => {
                     res.send(error);
@@ -91,12 +74,10 @@ UsuarioController.registraUsuario = async (req, res) => {
         }).catch(error => {
             res.send(error)
         });
-
-    
-    
 };
 
-UsuarioController.updateProfile = async (req, res) => {
+// Funcion updateProfile
+UsuarioController.actualizaPerfil = async (req, res) => {
 
     let datos = req.body;
 
@@ -104,7 +85,7 @@ UsuarioController.updateProfile = async (req, res) => {
 
     try {
 
-        Usuario.update(datos, {
+        Usuario.actualiza(datos, {
             where: {id : id}
         })
         .then(actualizado => {
@@ -117,66 +98,8 @@ UsuarioController.updateProfile = async (req, res) => {
 
 };
 
-UsuarioController.updatePassword = (req,res) => {
-
-    console.log("entramos");
-
-    let id = req.body.id;
-
-    let oldPassword = req.body.oldPassword;
-
-    let newPassword = req.body.newPassword;
-
-    Usuario.findOne({
-        where : { id : id}
-    }).then(usuarioFound => {
-
-        if(usuarioFound){
-
-            if (bcrypt.compareSync(oldPassword, usuarioFound.password)) {
-
-                //En caso de que el Password antiguo SI sea el correcto....
-
-                //1er paso..encriptamos el nuevo password....
-
-                newPassword = bcrypt.hashSync(newPassword, Number.parseInt(authConfig.rounds)); 
-
-                ////////////////////////////////7
-
-                //2do paso guardamos el nuevo password en la base de datos
-
-                let data = {
-                    password: newPassword
-                }
-
-                console.log("esto es data",data);
-                
-                Usuario.update(data, {
-                    where: {id : id}
-                })
-                .then(actualizado => {
-                    res.send(actualizado);
-                })
-                .catch((error) => {
-                    res.status(401).json({ msg: `Ha ocurrido un error actualizando el password`});
-                });
-
-            }else{
-                res.status(401).json({ msg: "Usuario o contraseña inválidos" });
-            }
-
-
-        }else{
-            res.send(`Usuario no encontrado`);
-        }
-
-    }).catch((error => {
-        res.send(error);
-    }));
-
-};
-
-UsuarioController.deleteAll = async (req, res) => {
+// Funcion borrarTodos
+UsuarioController.borraTodos = async (req, res) => {
 
     try {
 
@@ -194,13 +117,15 @@ UsuarioController.deleteAll = async (req, res) => {
 
 };
 
-UsuarioController.deleteById = async (req, res) => {
+
+// Funcion borragById
+UsuarioController.borraById = async (req, res) => {
 
     let id = req.params.id;
 
     try {
 
-        Usuario.destroy({
+        Usuario.eliminar({
             where : { id : id },
             truncate : false
         })
@@ -215,7 +140,7 @@ UsuarioController.deleteById = async (req, res) => {
 
 };
 
-
+// Funcion logUsuario
 UsuarioController.logUsuario = (req, res) => {
 
     let correo = req.body.email;
