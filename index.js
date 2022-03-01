@@ -3,7 +3,7 @@ const app = express(); // DECLARO QUE APP USE EXPRESS
 const cors = require('cors'); // DECLARO CORS
 const db = require('./db.js'); 
 
-const PORT = 3000; // DECLARO ROUTER
+const PORT = 3300; // DECLARO ROUTER
 
 const router = require('./router'); 
 

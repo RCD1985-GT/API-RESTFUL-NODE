@@ -8,8 +8,8 @@ const UsuarioController = {};
 
 // Funcion traeUsuarios
 UsuarioController.traeUsuarios = (req, res) => {
-    //Búsqueda trayendo a todos los usuarios
-    Usuario.encuentraTodos()
+    
+    Usuario.findAll()
     .then(data => { 
 
         res.send(data) 
@@ -33,7 +33,7 @@ UsuarioController.registraUsuario = async (req, res) => {
         
         //Guardamos en sequelize el usuario
 
-        Usuario.encuentraTodos({
+        Usuario.findAll({
             where : {
 
                 [Op.or] : [
@@ -55,14 +55,14 @@ UsuarioController.registraUsuario = async (req, res) => {
 
             if(datosRepetidos == 0){
 
-                    Usuario.crear({
+                    Usuario.create({
                     nombre: nombre,
                     apellido: apellido,
                     email: email,
                     edad: edad,
                     password: password,
                 }).then(usuario => {
-                    res.send(`${usuario.nombre}, bienvenid@ a MovieWorld`);
+                    res.send(`${usuario.nombre}, bienvenida a este infierno`);
                 })
                 .catch((error) => {
                     res.send(error);
@@ -76,7 +76,8 @@ UsuarioController.registraUsuario = async (req, res) => {
         });
 };
 
-// Funcion updateProfile
+
+// Funcion actualizaPerfil
 UsuarioController.actualizaPerfil = async (req, res) => {
 
     let datos = req.body;
@@ -85,7 +86,7 @@ UsuarioController.actualizaPerfil = async (req, res) => {
 
     try {
 
-        Usuario.actualiza(datos, {
+        Usuario.update(datos, {
             where: {id : id}
         })
         .then(actualizado => {
@@ -98,8 +99,8 @@ UsuarioController.actualizaPerfil = async (req, res) => {
 
 };
 
-// Funcion borrarTodos
-UsuarioController.borraTodos = async (req, res) => {
+// Funcion borraUsuarios
+UsuarioController.borraUsuarios = async (req, res) => {
 
     try {
 
@@ -117,15 +118,14 @@ UsuarioController.borraTodos = async (req, res) => {
 
 };
 
-
-// Funcion borragById
-UsuarioController.borraById = async (req, res) => {
+// Funcion borraUsuarioPorId
+UsuarioController.borraUsuarioPorId = async (req, res) => {
 
     let id = req.params.id;
 
     try {
 
-        Usuario.eliminar({
+        Usuario.destroy({
             where : { id : id },
             truncate : false
         })
@@ -140,8 +140,8 @@ UsuarioController.borraById = async (req, res) => {
 
 };
 
-// Funcion logUsuario
-UsuarioController.logUsuario = (req, res) => {
+// Funcion loginUsuario
+UsuarioController.loginUsuario = (req, res) => {
 
     let correo = req.body.email;
     let password = req.body.password;
@@ -149,7 +149,6 @@ UsuarioController.logUsuario = (req, res) => {
     Usuario.findOne({
         where : {email : correo}
     }).then(Usuario => {
-
         if(!Usuario){
             res.send("Usuario o contraseña inválido");
         }else {

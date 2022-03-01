@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     peliculaId: DataTypes.STRING,
     usuarioId: DataTypes.STRING,
     precio: DataTypes.INTEGER, 
-    fechaAlquiler: DataTypes.DATE, // ¿DATE ES CORRECTO?...CÓMO ESCRIBO UN DATE EN POSTAM¿?
+    fechaAlquiler: DataTypes.STRING, // ¿DATE ES CORRECTO?...CÓMO ESCRIBO UN DATE EN POSTAM¿?
     fechaDevolucion: DataTypes.STRING // ¿DATE ES CORRECTO?...CÓMO ESCRIBO UN DATE EN POSTAM¿?
   }, {
     sequelize,

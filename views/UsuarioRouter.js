@@ -11,29 +11,26 @@ const UsuarioController = require('../controllers/UsuarioController');
 router.get('/', auth,  UsuarioController.traeUsuarios); 
 //http://localhost:3000/usuarios
 
-/*
-router.get('/email/:email', auth, UsuarioController.traerUsuarioEmail);
-router.get('/:id', auth, UsuarioController.traerUsuarioId);*/
 
 //Registro-CREATE
-router.post('/', UsuarioController.registraUsuario);
-//http://localhost:3000/usuarios
+router.post('/registro', UsuarioController.registraUsuario);
+//http://localhost:3300/usuarios/registro
 
 //Modificar datos de un Usuario-UPDATE
-/*router.put('/newpassword', auth, UsuarioController.updatePassword);*/
-router.put('/:id', auth, UsuarioController.actualizaPerfil);
-
-
-//Borramos a todos los usuarios-DELETE
-router.delete('/', isAdmin, UsuarioController.borraTodos);
+router.put('/actualizar', auth, UsuarioController.actualizaPerfil); //mirar :id
+//http://localhost:3300/usuarios/actualizar
 
 //Borramos a todos los usuarios-DELETE
-router.delete('/:id', auth, UsuarioController.borraById);
+router.delete('/borrar', isAdmin, UsuarioController.borraUsuarios);
+//http://localhost:3300/usuarios/borrar
 
+//Borramos usuarios por id-DELETE
+router.delete('/borrarId', auth, UsuarioController.borraUsuarioPorId); // pno deberia de llevar isadmin¿?¿?
+//http://localhost:3300/borrarId
 
 
 //Login
-router.post('/login', UsuarioController.logUsuario);
+router.post('/login', UsuarioController.loginUsuario);
 //https://localhost:3000/usuarios/login
 
 
