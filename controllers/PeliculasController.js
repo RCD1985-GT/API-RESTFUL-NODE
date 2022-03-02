@@ -8,13 +8,13 @@ const PeliculasController = {};
 
 
 //Funcion traePeliculas
-PeliculasController.traePeliculas = (req, res) => { // FALTA
-
+PeliculasController.traePeliculas = (req, res) => { // VERIFICAR FORMULA
+    Pelicula.findAll().then((Peliculas) => res.json(Peliculas));
 };
 
 
 // Funcion registraPelicula
-PeliculasController.registraPelicula = (req, res) => { // FALTA
+PeliculasController.registraPelicula = (req, res) => { // VERIFICAR FORMULA
 
 };
 

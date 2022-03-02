@@ -13,9 +13,9 @@ PedidosController.nuevoPedido = (req,res) => {
     console.log("este es body",body)
 
     pedido.create({
-        precio: body.precio,
         peliculaId: body.peliculaId,
         usuarioId: body.usuarioId,
+        precio: body.precio,
         fechaAlquiler: body.fechaAlquiler,
         fechaDevolucion: body.fechaDevolucion
     })

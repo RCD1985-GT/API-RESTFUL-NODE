@@ -8,14 +8,20 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      usuario: {
-        type: Sequelize.STRING
+      peliculaId: {
+        type: Sequelize.INTEGER
       },
-      titulo: {
-        type: Sequelize.STRING
+      usuarioID: {
+        type: Sequelize.INTEGER
       },
-      metodo: {
-        type: Sequelize.STRING
+      precio: {
+        type: Sequelize.INTEGER
+      },
+      fechaAlquiler: {
+        type: Sequelize.DATE
+      },
+      fechaDevolucion: {
+        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,

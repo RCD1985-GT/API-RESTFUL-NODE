@@ -11,14 +11,21 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.Peliculas, {
+        foreignKey: 'peliculaId'
+      });
+      this.belongsTo(models.Usuario, {
+        foreignKey: 'usuarioId'
+      });
     }
-  }
+  };
+
   Pedidos.init({
-    peliculaId: DataTypes.STRING,
-    usuarioId: DataTypes.STRING,
+    peliculaId: DataTypes.INTEGER,
+    usuarioId: DataTypes.INTEGER,
     precio: DataTypes.INTEGER, 
-    fechaAlquiler: DataTypes.STRING, // ¿DATE ES CORRECTO?...CÓMO ESCRIBO UN DATE EN POSTAM¿?
-    fechaDevolucion: DataTypes.STRING // ¿DATE ES CORRECTO?...CÓMO ESCRIBO UN DATE EN POSTAM¿?
+    fechaAlquiler: DataTypes.DATE, 
+    fechaDevolucion: DataTypes.DATE 
   }, {
     sequelize,
     modelName: 'Pedidos',

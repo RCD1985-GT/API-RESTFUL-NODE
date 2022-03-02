@@ -8,7 +8,7 @@ const UsuarioController = require('../controllers/UsuarioController');
 //CRUD 
 
 //Leer todos los usuarios-READ
-router.get('/', auth,  UsuarioController.traeUsuarios); 
+router.get('/', auth, isAdmin,  UsuarioController.traeUsuarios); 
 //http://localhost:3000/usuarios
 
 
@@ -17,15 +17,15 @@ router.post('/registro', UsuarioController.registraUsuario);
 //http://localhost:3300/usuarios/registro
 
 //Modificar datos de un Usuario-UPDATE
-router.put('/actualizar', auth, UsuarioController.actualizaPerfil); //mirar :id
+router.put('/actualizar', auth, UsuarioController.actualizaPerfil); 
 //http://localhost:3300/usuarios/actualizar
 
 //Borramos a todos los usuarios-DELETE
-router.delete('/borrar', isAdmin, UsuarioController.borraUsuarios);
+router.delete('/borrar', auth, isAdmin, UsuarioController.borraUsuarios);
 //http://localhost:3300/usuarios/borrar
 
 //Borramos usuarios por id-DELETE
-router.delete('/borrarId', auth, UsuarioController.borraUsuarioPorId); // pno deberia de llevar isadmin¿?¿?
+router.delete('/borrarId', auth, isAdmin, UsuarioController.borraUsuarioPorId); // pno deberia de llevar isadmin¿?¿?
 //http://localhost:3300/borrarId
 
 
