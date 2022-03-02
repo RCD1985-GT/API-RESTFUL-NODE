@@ -1,23 +1,23 @@
 
-const { Order } = require('../models/index'); // ¿PORQUE LLAMA A MODELS/INDEX.JS?
+const { Pedido } = require('../models/index'); // ¿PORQUE LLAMA A MODELS/INDEX.JS?
 
 
 const PedidosController = {};
 
 
 // Funcion nuevoPedido
+
 PedidosController.nuevoPedido = (req,res) => {
     
     let body = req.body;
 
     console.log("este es body",body)
 
-    pedido.create({
+    Pedido.create({
         peliculaId: body.peliculaId,
         usuarioId: body.usuarioId,
         precio: body.precio,
-        fechaAlquiler: body.fechaAlquiler,
-        fechaDevolucion: body.fechaDevolucion
+        fecha: body.fecha
     })
     .then(pedido => {
         if(pedido){
@@ -31,20 +31,14 @@ PedidosController.nuevoPedido = (req,res) => {
     }))
 }
 
+
+
+
 // Funcion totalPedidos
-PedidosController.totalPedidos = async (req,res) => {
-
-    let consulta = `SELECT usuarios.name AS nombre, peliculas.titulo AS titulo , peliculas.popularity AS top_rated, usuarios.nickname AS Nick, usuarios.email AS correo
-    FROM usuarios INNER JOIN orders 
-    ON usuarios.id = orders.usuarioId INNER JOIN peliculas 
-    ON peliculas.id = orders.peliculaId WHERE popularity > 6 AND name LIKE '%Ra%' ORDER BY top_rated DESC`; 
-
-    let resultado = await pedido.sequelize.query(consulta,{
-        type: pedido.sequelize.QueryTypes.SELECT});
-
-    if(resultado){
-        res.send(resultado);
-    }
-
-}
+PedidosController.totalPedidos = (req, res) => {
+    Pedido.findAll()
+    .then(data => {
+        res.send(data)
+    });
+};
 module.exports = PedidosController;

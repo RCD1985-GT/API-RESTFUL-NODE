@@ -18,5 +18,13 @@ PeliculasController.registraPelicula = (req, res) => { // VERIFICAR FORMULA
 
 };
 
+/*
+UsuarioController.traerUsuarioId = (req, res) => {
+    //Búsqueda buscando una Id
+    Usuario.findByPk(req.params.id)
+    .then(data => {
+        res.send(data)
+    });*/        // HABRIA QUE CAMBIAR USUARIO POR PELICULAS
 
+    
 module.exports = PeliculasController;

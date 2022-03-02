@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const auth = require("../middlewares/auth");/* AL ACTIVAR ESTAS 2 LINEAS FALLA*/
+const auth = require("../middlewares/auth");
 const isAdmin = require("../middlewares/isAdmin");
 
 const UsuarioController = require('../controllers/UsuarioController');
@@ -25,7 +25,7 @@ router.delete('/borrar', auth, isAdmin, UsuarioController.borraUsuarios);
 //http://localhost:3300/usuarios/borrar
 
 //Borramos usuarios por id-DELETE
-router.delete('/borrarId', auth, isAdmin, UsuarioController.borraUsuarioPorId); // pno deberia de llevar isadmin¿?¿?
+router.delete('/:id', auth, isAdmin, UsuarioController.borraUsuarioPorId); 
 //http://localhost:3300/borrarId
 
 
