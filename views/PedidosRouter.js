@@ -5,11 +5,11 @@ const PedidosController = require('../controllers/PedidosController');
 
 // Nuevo pedido
 router.post('/nuevoPedido', auth, PedidosController.nuevoPedido);
-//http://localhost:3300/nuevoPedido
+//http://localhost:3300/pedidos/nuevoPedido
 
 
 // Total de pedidos
 router.get('/totalPedidos', auth, PedidosController.totalPedidos);
-//http://localhost:3300/totalPedidos
+//http://localhost:3300/pedidos/totalPedidos
 
 module.exports = router;
