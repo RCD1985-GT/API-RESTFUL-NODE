@@ -24,7 +24,7 @@ UsuarioController.traerUsuarioId = (req, res) => {
     Usuario.findByPk(req.params.id)
     .then(data => {
         res.send(data)
-    });*/        // HABRIA QUE CAMBIAR USUARIO POR PELICULAS
+    });*/        // SI QUIERO AÑADIR MAS ENDPOINTS HABRIA QUE CAMBIAR USUARIO POR PELICULAS 
 
-    
+
 module.exports = PeliculasController;

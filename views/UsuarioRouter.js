@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const auth = require("../middlewares/auth");
-const isAdmin = require("../middlewares/isAdmin");
+const auth = require("../middlewares/auth"); // DICE QUE auth utilice el middleware auth
+const isAdmin = require("../middlewares/isAdmin");// DICE QUE isAdmin utilice el middleware isAdmin
 
-const UsuarioController = require('../controllers/UsuarioController');
+const UsuarioController = require('../controllers/UsuarioController'); // 
 
 //CRUD 
 
@@ -11,22 +11,21 @@ const UsuarioController = require('../controllers/UsuarioController');
 router.get('/', auth, isAdmin,  UsuarioController.traeUsuarios); 
 //http://localhost:3000/usuarios
 
-
-//Registro-CREATE
+//Registro un usuario-CREATE
 router.post('/registro', UsuarioController.registraUsuario);
 //http://localhost:3300/usuarios/registro
 
-//Modificar datos de un Usuario-UPDATE
+//Modificar un Usuario-UPDATE
 router.put('/actualizar', auth, UsuarioController.actualizaPerfil); 
 //http://localhost:3300/usuarios/actualizar
 
-//Borramos a todos los usuarios-DELETE
+//Borrar todos los usuarios-DELETE
 router.delete('/borrar', auth, isAdmin, UsuarioController.borraUsuarios);
 //http://localhost:3300/usuarios/borrar
 
-//Borramos usuarios por id-DELETE
+//Borrar usuarios por id-DELETE
 router.delete('/:id', auth, isAdmin, UsuarioController.borraUsuarioPorId); 
-//http://localhost:3300/borrarId
+//http://localhost:3300/usuarios/id
 
 
 //Login

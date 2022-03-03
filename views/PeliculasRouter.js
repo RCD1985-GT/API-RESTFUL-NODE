@@ -18,7 +18,5 @@ router.get('/peliculas', PeliculasController.traePeliculas);
 //http://localhost:3300/peliculas
 
 
-/*
-router.get('/:id', auth, UsuarioController.traerUsuarioId);
-*/
+
 module.exports = router;
