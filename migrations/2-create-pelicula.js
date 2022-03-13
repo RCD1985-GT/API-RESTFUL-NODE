@@ -16,7 +16,11 @@ module.exports = {
       },
       popularidad: {
         type: Sequelize.INTEGER
-      },
+              },
+      genero: {
+      type: Sequelize.STRING
+              },
+
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

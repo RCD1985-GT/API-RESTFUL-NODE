@@ -17,6 +17,9 @@ router.post('/registrarPelicula', auth, isAdmin, PeliculasController.registraPel
 router.get('/peliculas', PeliculasController.traePeliculas);
 //http://localhost:3300/peliculas/peliculas
 
+// //Leer peliculas por genero
+// router.get('/peliculas/:genero', PeliculasController.tratePeliculasGenero);
+
 
 
 module.exports = router;
