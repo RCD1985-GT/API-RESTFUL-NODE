@@ -11,13 +11,12 @@ UsuarioController.traeUsuarios = (req, res) => {
     
     Usuario.findAll()
     .then(data => { 
-
         res.send(data) 
     });
 
 };
 
-// Funcion registraUsuario
+// Funcion registraUsuario...FUNCIONA
 UsuarioController.registraUsuario = async (req, res) => {
     
     //Registrando un usuario
@@ -62,7 +61,7 @@ UsuarioController.registraUsuario = async (req, res) => {
                     edad: edad,
                     password: password,
                 }).then(usuario => {
-                    res.send(`${usuario.nombre}, bienvenida a este infierno`);
+                    res.send(`${usuario.nombre}, bienveni@ a Movie World`);
                 })
                 .catch((error) => {
                     res.send(error);
@@ -140,7 +139,7 @@ UsuarioController.borraUsuarioPorId = async (req, res) => {
 
 };
 
-// Funcion loginUsuario
+// Funcion loginUsuario....FUNCIONA
 UsuarioController.loginUsuario = (req, res) => {
 
     let correo = req.body.email;

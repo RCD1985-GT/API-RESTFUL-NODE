@@ -5,32 +5,30 @@ const isAdmin = require("../middlewares/isAdmin");// DICE QUE isAdmin utilice el
 
 const UsuarioController = require('../controllers/UsuarioController'); // 
 
-//CRUD 
 
-//Leer todos los usuarios-READ
-router.get('/', auth, isAdmin,  UsuarioController.traeUsuarios); 
-//http://localhost:3000/usuarios
+//Leer todos los usuarios  FUNCIONA 
+router.get('/', auth, UsuarioController.traeUsuarios); 
+//http://localhost:3300/usuarios
 
-//Registro un usuario-CREATE
+//Registrar un usuario...FUNCIONA 
 router.post('/registro', UsuarioController.registraUsuario);
 //http://localhost:3300/usuarios/registro
 
-//Modificar un Usuario-UPDATE
+//Actualiza un perfil
 router.put('/actualizar', auth, UsuarioController.actualizaPerfil); 
 //http://localhost:3300/usuarios/actualizar
 
-//Borrar todos los usuarios-DELETE
-router.delete('/borrar', auth, isAdmin, UsuarioController.borraUsuarios);
+//Borrar usuarios
+router.delete('/borrar', auth, UsuarioController.borraUsuarios);
 //http://localhost:3300/usuarios/borrar
 
-//Borrar usuarios por id-DELETE
-router.delete('/:id', auth, isAdmin, UsuarioController.borraUsuarioPorId); 
+//Borrar usuarios por id
+router.delete('/:id', auth, UsuarioController.borraUsuarioPorId); 
 //http://localhost:3300/usuarios/id
 
-
-//Login
+//Login...FUNCIONA 
 router.post('/login', UsuarioController.loginUsuario);
-//https://localhost:3000/usuarios/login
+//https://localhost:3300/usuarios/login
 
 
 module.exports = router;

@@ -23,6 +23,6 @@ app.use(router); // LE DICE A APP QUE USE ROUTER
 
 
 db.then(()=>{ // ¿ QUE ES ESTO ?
-    app.listen(PORT, ()=> console.log(`Server on port ${PORT}`)); // AQUI CONECTA EN EL PUERTO 3000
+    app.listen(PORT, ()=> console.log(`Server on port ${PORT}`)); // AQUI CONECTA EN EL PUERTO 3300
 })
-.catch((err)=> console.log(err.message));// ¿ QUE ES ESTO ?
+.catch((err)=> console.log(err.message));

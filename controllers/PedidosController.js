@@ -5,7 +5,7 @@ const { Pedido } = require('../models/index'); // ¿PORQUE LLAMA A MODELS/INDEX.
 const PedidosController = {};
 
 
-// Funcion nuevoPedido
+// Funcion nuevoPedido...FUNCIONA
 
 PedidosController.nuevoPedido = (req,res) => {
     
@@ -17,7 +17,8 @@ PedidosController.nuevoPedido = (req,res) => {
         peliculaId: body.peliculaId,
         usuarioId: body.usuarioId,
         precio: body.precio,
-        fecha: body.fecha
+        fechaAlquiler: body.fechaAlquiler,
+        fechaDevolucion: body.fechaDevolucion
     })
     .then(pedido => {
         if(pedido){
@@ -33,8 +34,7 @@ PedidosController.nuevoPedido = (req,res) => {
 
 
 
-
-// Funcion totalPedidos
+// Funcion totalPedidos....FUNCIONA
 PedidosController.totalPedidos = (req, res) => {
     Pedido.findAll()
     .then(data => {

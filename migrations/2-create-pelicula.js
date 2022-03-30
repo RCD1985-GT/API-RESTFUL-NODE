@@ -20,7 +20,12 @@ module.exports = {
       genero: {
       type: Sequelize.STRING
               },
-
+      poster: {
+      type: Sequelize.STRING
+             },
+      sinopsis: {
+      type: Sequelize.STRING
+              },      
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

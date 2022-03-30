@@ -10,4 +10,4 @@ router.use('/usuarios', UsuarioRouter); // DICE A ROUTER QUE EN /usuarios USE Us
 router.use('/peliculas', PeliculasRouter); // DICE A ROUTER QUE EN /peliculas USE PeliculasRouter
 router.use('/pedidos', PedidosRouter); // DICE A ROUTER QUE en /pedidos USE PedidosRouter
 
-module.exports = router; //¿ QUE ES ESTO ?
+module.exports = router;
