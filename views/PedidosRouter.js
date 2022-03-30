@@ -4,7 +4,7 @@ const auth = require("../middlewares/auth");
 const PedidosController = require('../controllers/PedidosController');
 
 // Nuevo pedido
-router.post('/nuevoPedido', auth, PedidosController.nuevoPedido);
+router.post('/nuevoPedido', PedidosController.nuevoPedido);
 //http://localhost:3300/pedidos/nuevoPedido
 
 

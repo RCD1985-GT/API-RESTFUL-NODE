@@ -5,7 +5,7 @@ const { Pedido } = require('../models/index'); // ¿PORQUE LLAMA A MODELS/INDEX.
 const PedidosController = {};
 
 
-// Funcion nuevoPedido...FUNCIONA
+// Funcion nuevoPedido...
 
 PedidosController.nuevoPedido = (req,res) => {
     
