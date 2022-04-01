@@ -7,7 +7,7 @@ const UsuarioController = require('../controllers/UsuarioController'); //
 
 
 //Leer todos los usuarios  FUNCIONA 
-router.get('/', auth, UsuarioController.traeUsuarios); 
+router.get('/', UsuarioController.traeUsuarios); 
 //http://localhost:3300/usuarios
 
 //Registrar un usuario...FUNCIONA 
